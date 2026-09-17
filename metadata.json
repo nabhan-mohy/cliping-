@@ -1,0 +1,6 @@
+{
+  "name": "ClipRewards - AI Clipping & Campaign Tool",
+  "description": "AI-powered short-form video clipping tool tailored for Content Rewards, virality scoring, multi-aspect ratio rendering, and campaign payout tracking.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

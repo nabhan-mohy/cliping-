@@ -1,0 +1,27 @@
+version: '3.8'
+
+services:
+  web-app:
+    build:
+      context: ..
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=production
+      - AI_PIPELINE_URL=http://ai-worker:8000
+    depends_on:
+      - ai-worker
+
+  ai-worker:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./media_cache:/app/media_cache
+    environment:
+      - WHISPER_MODEL=base
+      - DEVICE=cpu
+    restart: unless-stopped
